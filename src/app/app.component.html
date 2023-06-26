@@ -1,0 +1,4 @@
+{{name}}
+<button [disabled]="false">I am disabled</button>
+<div>Data from Child component: {{dataFromParent | json}}</div>
+<app-my-child [myName]="name"  (myCustomersData)="myChildData($event)"></app-my-child>

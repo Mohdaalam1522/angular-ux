@@ -1,0 +1,120 @@
+<div>Data from parent to child: {{myName}}</div>
+<button (click)="sendMessage()">Send Message</button>
+<input (change)="firstNameChanged($event)" />
+
+<div *ngIf="true" [ngClass]="myCls" (click)="myToggleBtn()">
+  This is shown if condition is true
+</div>
+
+<div [ngStyle]="{'color': 'blue', 'font-size': '24px', 'font-weight': 'bold'}" [ngClass]="myCls">
+  some text
+</div>
+
+<input [(ngModel)]="myColor" />
+<div [ngStyle]="{'background-color': myColor}">Change my color</div>
+<table>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="true">
+      <tr *ngFor="let customer of customers;" [ngStyle]="{'color': 'blue', 'font-size': '24px', 'font-weight': 'bold'}"
+        [ngClass]="myCls">
+        <td>{{customer.customerNo}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer?.address}}</td>
+        <td>{{customer.city}}</td>
+        <td>{{customer.state}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+<table>
+  <tr>
+    <th> name</th>
+    <th>id </th>
+    <th>product </th>
+    <th>price </th>
+  </tr>
+</table>
+<div class='card'>
+  <div class='card-header'>
+    ngSwitch Example
+  </div>
+  <div class="card-body">
+    Input string : <input type='text' [(ngModel)]="num" />
+
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="'1'">One</div>
+      <div *ngSwitchCase="'2'">Two</div>
+      <div *ngSwitchCase="'3'">Three</div>
+      <div *ngSwitchCase="'4'">Four</div>
+      <div *ngSwitchCase="'5'">Five</div>
+      <div *ngSwitchDefault>This is Default</div>
+    </div>
+  </div>
+</div>
+<!-- ngIf hideen -->
+<div *ngIf="true">This is with ngIf
+  <p>This is para</p>
+</div>
+
+<div [hidden]="true">This is with Hidden
+  <p [hidden]="false">This is hidden para</p>
+</div>
+<!-- ngIf else -->
+<div *ngIf="true; else elseBlock">
+  content to render, when the condition is true
+</div>
+<div [ngClass]="condition?'myClass':'myClassYellow'">
+  This is test Div.
+</div>
+<ng-template #elseBlock>
+  <div>
+    <p> false</p>
+  </div>
+</ng-template>
+<!-- <div *ngIf="false; else elseBlock1"> -->
+<!-- the condition is true -->
+<!-- </div> -->
+<!-- <ng-template #elseBlock1> -->
+<!-- <div> -->
+<button (click)="myToggleBtn()"> Toggle Btn</button>
+<!-- </div> -->
+<!-- <p *ngIf="condition; then thenBlock2 else elseBlock2"> -->
+<!-- not  -->
+<!-- </p> -->
+<!-- <ng-template #thenBlock2> -->
+<!-- <p>thenblock2 condition</p> -->
+<!-- </ng-template> -->
+<!-- <ng-template #elseBlock2> -->
+<!-- <p>elseblock condition</p> -->
+
+<!-- <p *ngIf="condition; then thenBlock2 else elseBlock2"> -->
+<!-- This is not rendered  -->
+<!-- </p> -->
+<!-- <ng-template #thenBlock2> -->
+<!-- <p>ShowMe is checked Using thenblock</p> -->
+<!-- </ng-template> -->
+<!-- <ng-template #elseblock2> -->
+<!-- <p>ShowMe is unchecked Using elseBlock</p> -->
+<!-- /ng-template> -->
+<!-- </ng-template> -->
+<!-- <div *ngIf="condition; else elseBlock" [ngClass]="myCls"> -->
+<!-- content to render, when the condition is true -->
+<!-- </div> -->
+<!-- <button (click)="myToggleBtn()">Toggle Btn</button> -->
+<!--  -->
+<!-- <ng-template #elseBlock> -->
+<!-- <div> -->
+<!-- <button> -->
+<!-- Else BTN -->
+<!-- </button> -->
+<!-- </div> -->
+<!-- </ng-template> -->
