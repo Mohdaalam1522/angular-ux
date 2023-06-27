@@ -6,10 +6,15 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@
   styleUrls: ['./my-child.component.css']
 })
 export class MyChildComponent {
-  @Input() myName: string | undefined;
+  @Input() parent: string | undefined;
+  @Input() child: string | undefined;
   @Output() myCustomersData= new EventEmitter<Customer[]>();
   @Output() myToggleFlag= new EventEmitter<boolean>();
   @Output() mybuttonflag=new EventEmitter<string>();
+  @Output() myText=new EventEmitter<string>();
+  @Output() myCustomersName=new EventEmitter<string>();
+  @Output() myChildParent=new EventEmitter<string>();
+
   num: any;
   condition;
   firstName: any;
@@ -32,13 +37,20 @@ export class MyChildComponent {
       "firstNameChanged  argument " + arg + "  component " + this.firstName
     );
   }
-  name:string="Aalam";
+  myName:string="Aalam";
+  childName:string="parent to child";
   myToggleBtn() {
     this.condition = !this.condition;
     this.myToggleFlag.emit(this.condition)
     this.mybuttonflag.emit(this.myColor);
+    this.myText.emit("myColor");
+    this.myCustomersName.emit("Data from child to parent")
+    this.myChildParent.emit("Data transfer from Child to Parent")
   }
   
+   
+  
+
 
   sendMessage() {
     this.myCustomersData.emit(this.customers)
