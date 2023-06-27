@@ -1,4 +1,10 @@
-{{name}}
+
+<div>Toggle flag value from Child is: {{myToggleFlagFromChild}}</div> 
+<div> flafdata: {{myToggleflagdata}}</div>
+<div> flafdata: {{myToggleflag}}</div>
+<div> flafdata: {{myFlagData}}</div>
+<div> flafdata: {{myName}}</div>
 <button [disabled]="false">I am disabled</button>
 <div>Data from Child component: {{dataFromParent | json}}</div>
-<app-my-child [myName]="name"  (myCustomersData)="myChildData($event)"></app-my-child>
+
+<app-my-child [parent]="myName"[child]="childName" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)"></app-my-child>

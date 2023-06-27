@@ -106,22 +106,23 @@
 <!-- <p>ShowMe is unchecked Using elseBlock</p> -->
 <!-- /ng-template> -->
 <!-- </ng-template> -->
-<!-- <div *ngIf="condition; else elseBlock" [ngClass]="myCls"> -->
-<!-- content to render, when the condition is true -->
-<!-- </div> -->
-<!-- <button (click)="myToggleBtn()">Toggle Btn</button> -->
-<!--  -->
-<!-- <ng-template #elseBlock> -->
-<!-- <div> -->
-<!-- <button> -->
-<!-- Else BTN -->
-<!-- </button> -->
-<!-- </div> -->
-<!-- </ng-template> -->
+<div *ngIf="condition; else elseBlock" [ngClass]="myCls">
+content to render, when the condition is true
+</div>
+<button (click)="myToggleBtn()">Toggle Btn</button>
+
+<ng-template #elseBlock>
+<div>
+<button>
+Else BTN
+</button>
+</div>
+</ng-template>
 
 <p> para</p>
 <div>
 <div *ngIf="false">this is new condition</div>
  <p [hidden]="false">false condition</p>
 </div>
-{{name}}
+{{parent}}
+{{child}}
