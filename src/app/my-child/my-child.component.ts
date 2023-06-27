@@ -8,6 +8,8 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@
 export class MyChildComponent {
   @Input() myName: string | undefined;
   @Output() myCustomersData= new EventEmitter<Customer[]>();
+  @Output() myToggleFlag= new EventEmitter<boolean>();
+  @Output() mybuttonflag=new EventEmitter<string>();
   num: any;
   condition;
   firstName: any;
@@ -30,10 +32,13 @@ export class MyChildComponent {
       "firstNameChanged  argument " + arg + "  component " + this.firstName
     );
   }
-
+  name:string="Aalam";
   myToggleBtn() {
     this.condition = !this.condition;
+    this.myToggleFlag.emit(this.condition)
+    this.mybuttonflag.emit(this.myColor);
   }
+  
 
   sendMessage() {
     this.myCustomersData.emit(this.customers)
