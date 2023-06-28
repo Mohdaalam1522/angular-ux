@@ -4,7 +4,9 @@
 <div> flafdata: {{myToggleflag}}</div>
 <div> flafdata: {{myFlagData}}</div>
 <div> flafdata: {{myName}}</div>
+<div> flafdata: {{Data}}</div>
+
 <button [disabled]="false">I am disabled</button>
 <div>Data from Child component: {{dataFromParent | json}}</div>
-
-<app-my-child [parent]="myName"[child]="childName" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)"></app-my-child>
+<div>Data from Grand Child: {{myGrandChildData}}</div>
+<app-my-child [parent]="myName"[child]="childName" [mychild]="myParent" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)" (myChildOut)="datachild($event)" (dataFromGrandChild)="grandChildData($event)"></app-my-child>

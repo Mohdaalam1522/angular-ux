@@ -107,22 +107,25 @@
 <!-- /ng-template> -->
 <!-- </ng-template> -->
 <div *ngIf="condition; else elseBlock" [ngClass]="myCls">
-content to render, when the condition is true
+  content to render, when the condition is true
 </div>
 <button (click)="myToggleBtn()">Toggle Btn</button>
 
 <ng-template #elseBlock>
-<div>
-<button>
-Else BTN
-</button>
-</div>
+  <div>
+    <button>
+      Else BTN
+    </button>
+  </div>
 </ng-template>
 
 <p> para</p>
 <div>
-<div *ngIf="false">this is new condition</div>
- <p [hidden]="false">false condition</p>
+  <div *ngIf="false">this is new condition</div>
+  <p [hidden]="false">false condition</p>
 </div>
 {{parent}}
 {{child}}
+{{dataChild}}
+<app-child2 (myToggleBTN)="childParent($event)"></app-child2>
+

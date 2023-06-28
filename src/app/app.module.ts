@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MyChildComponent } from './my-child/my-child.component';
 import { FormsModule } from '@angular/forms';
+import { Child2Component } from './child2/child2.component';
+import { GrandchildComponent } from './grandchild/grandchild.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyChildComponent
+    MyChildComponent,
+    Child2Component,
+    GrandchildComponent
   ],
   imports: [
     BrowserModule, FormsModule
