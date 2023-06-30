@@ -11,4 +11,4 @@
 <div>Data from Grand Child: {{myGrandChildData}}</div>
 <app-my-child [parent]="myName"[child]="childName" [mychild]="myParent" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)" (myChildOut)="datachild($event)" (dataFromGrandChild)="grandChildData($event)"></app-my-child>
 <button [disabled]="myGrandChildData"> disableBtn</button>
-{{ 2 | pipe }}
+{{ 2 | pipe:10 }}
