@@ -1,4 +1,18 @@
 
+<div class="container">
+    <label for="customRange1" class="form-label">Example range</label>
+<input type="range" class="form-range" id="customRange1">
+<div class="row">
+    <div class="col-sm-6 col-md-8">This is Div1
+        <div class="row">
+            <div class="col-md-4">Nested 1</div>
+            <div class="col-md-4">Nested 2</div>
+            <div class="col-md-4">Nested 3</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-2">This is Div2</div>
+    <div class="col-sm-6 col-md-2">This is Div3</div>
+</div>
 <div>Toggle flag value from Child is: {{myToggleFlagFromChild}}</div> 
 <div> flafdata: {{myToggleflagdata}}</div>
 <div> flafdata: {{myToggleflag}}</div>
@@ -10,5 +24,6 @@
 <div>Data from Child component: {{dataFromParent | json}}</div>
 <div>Data from Grand Child: {{myGrandChildData}}</div>
 <app-my-child [parent]="myName"[child]="childName" [mychild]="myParent" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)" (myChildOut)="datachild($event)" (dataFromGrandChild)="grandChildData($event)"></app-my-child>
-<button [disabled]="myGrandChildData"> disableBtn</button>
+<button [disabled]="myGrandChildData" class="btn btn-outline-primary mx-2"> disableBtn</button>
 {{ 2 | pipe:10 }}
+</div>

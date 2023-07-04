@@ -54,20 +54,13 @@ export class MyChildComponent {
     this.myChildOut.emit("data from child to parent Again");
     this.dataFromGrandChild.emit(this.dataChild);
   }
-
-
-
-
-
   sendMessage() {
     this.myCustomersData.emit(this.customers);
   }
   childParent(toggleData: string) {
     this.dataChild = toggleData;
-  }
-
-}
-
+ }
+ }
 export interface Customer {
   customerNo: number;
   name: string;

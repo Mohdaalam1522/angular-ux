@@ -25,6 +25,10 @@ export class AppComponent {
     this.dataFromParent = msg;
   }
 
+  constructor() {
+    console.log("AppComponent:Contructed");
+  }
+
   toggleData(toggleFlag: boolean) {
     this.myToggleFlagFromChild = toggleFlag
   }
@@ -47,6 +51,38 @@ export class AppComponent {
 
   grandChildData(msgFromGChild: string) {
     this.myGrandChildData = msgFromGChild;
+  }
+
+  ngOnChanges() {
+    console.log("AppComponent:ngOnChanges");
+  }
+
+  ngOnInit() {
+    console.log("AppComponent:ngOnInit");
+  }
+
+  ngDoCheck() {
+    console.log("AppComponent:DoCheck");
+  }
+
+  ngAfterContentInit() {
+    console.log("AppComponent:ngAfterContentInit");
+  }
+
+  ngAfterContentChecked() {
+    console.log("AppComponent:AfterContentChecked");
+  }
+
+  ngAfterViewInit() {
+    console.log("AppComponent:AfterViewInit");
+  }
+
+  ngAfterViewChecked() {
+    console.log("AppComponent:AfterViewChecked");
+  }
+
+  ngOnDestroy() {
+    console.log("AppComponent:ngOnDestroy");
   }
 
 
