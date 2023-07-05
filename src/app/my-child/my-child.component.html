@@ -127,5 +127,16 @@
 {{parent}}
 {{child}}
 {{dataChild}}
-<app-child2 (myToggleBTN)="childParent($event)"></app-child2>
-
+<app-child2 (myToggleBTN)="childParent($event)">
+  <p>This is content projection.</p>
+  <p id="myContent">This is content projection via select.</p>
+  <p id="myContent1">This is content projection via select1.</p>
+  <input type="text" placeholder="myTextBox">
+  <p>Radio button
+    <input type="radio">
+  </p>
+  <div>
+    <div *ngIf="true">this is new condition</div>
+    <p [hidden]="false">false condition</p>
+  </div>
+</app-child2>

@@ -7,14 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { Child2Component } from './child2/child2.component';
 import { GrandchildComponent } from './grandchild/grandchild.component';
 import { PipePipe } from './pipe.pipe';
-
+import { FlyingHeroesPipe } from './flying-heroes.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     MyChildComponent,
     Child2Component,
     GrandchildComponent,
-    PipePipe
+    PipePipe,
+    FlyingHeroesPipe
   ],
   imports: [
     BrowserModule, FormsModule

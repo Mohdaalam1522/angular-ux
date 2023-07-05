@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Customer } from './my-child/my-child.component';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  implements OnInit{
   myParent: string = "data Transfer From Parent To child";
   title = 'mytestAalam';
   myName: string = 'Aalam from parent';
@@ -20,9 +21,15 @@ export class AppComponent {
   dataFromChild: string | undefined;
   Data: string | undefined;
   myGrandChildData: string | undefined;
+  formValue:any = {}
+  @ViewChild('myTemplate') myTemplateForm: NgForm | undefined;
   myChildData(msg: Customer[]) {
     console.log(msg);
     this.dataFromParent = msg;
+  }
+
+  constructor() {
+    console.log("AppComponent:Contructed");
   }
 
   toggleData(toggleFlag: boolean) {
@@ -49,6 +56,58 @@ export class AppComponent {
     this.myGrandChildData = msgFromGChild;
   }
 
+  ngOnChanges() {
+    console.log("AppComponent:ngOnChanges");
+  }
 
+  ngOnInit() {
+    console.log("AppComponent:ngOnInit");
+    
+    this.formValue = {
+      fName: 'Mr.',
+      lName: 'ABC'
+    }
+  }
+
+  ngDoCheck() {
+    console.log("AppComponent:DoCheck");
+  }
+
+  ngAfterContentInit() {
+    console.log("AppComponent:ngAfterContentInit");
+  }
+
+  ngAfterContentChecked() {
+    console.log("AppComponent:AfterContentChecked");
+  }
+
+  ngAfterViewInit() {
+    console.log("AppComponent:AfterViewInit");
+    this.myTemplateForm?.control.patchValue({fName: 'aa'})
+  }
+
+  ngAfterViewChecked() {
+    console.log("AppComponent:AfterViewChecked");
+  }
+
+  ngOnDestroy() {
+    console.log("AppComponent:ngOnDestroy");
+  }
+
+
+  onSubmit(contactForm: NgForm) {
+    console.log(contactForm.value);
+  }
+
+  updateValue(){
+    let obj = {
+      firstname: "Rahul",
+      lastname: "Dravid",
+      email: "rahul@gmail.com",
+    };
+    if(this.myTemplateForm)
+     this.myTemplateForm.control.patchValue(obj);
+  } 
+  
 }
 
