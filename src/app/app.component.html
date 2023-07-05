@@ -26,4 +26,40 @@
 <app-my-child [parent]="myName"[child]="childName" [mychild]="myParent" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)" (myChildOut)="datachild($event)" (dataFromGrandChild)="grandChildData($event)"></app-my-child>
 <button [disabled]="myGrandChildData" class="btn btn-outline-primary mx-2"> disableBtn</button>
 {{ 2 | pipe:10 }}
-</div>
+<app-my-child (myCustomersData)="myChildData($event)"></app-my-child>
+
+
+    <form #myTemplate="ngForm" (ngSubmit)="onSubmit(myTemplate)">
+        <div>
+            <label for="fName">First Name</label>
+            <input type="text" id="fName" name="fName" [(ngModel)]="formValue.fName" required maxlength="5" disabled="">
+        </div>
+        <div>
+            <label for="lName">Last Name</label>
+            <input type="text" id="lName" name="lName" [(ngModel)]="formValue.lName" required>
+        </div>
+        <div ngModelGroup="address">
+ 
+            <p>
+              <label for="city">City</label>
+              <input type="text" name="city" ngModel>
+            </p>
+         
+            <p>
+              <label for="street">Street</label>
+              <input type="text" name="street" ngModel>
+            </p>
+            <p>
+              <label for="pincode">Pin Code</label>
+              <input type="text" name="pincode" ngModel>
+            </p>
+         
+        </div>
+        <button type="submit" [disabled]="!myTemplate.valid">Submit</button>
+        <button type="button" (click)="updateValue()">Update Value</button>
+
+    </form>
+
+    <pre>Value : {{myTemplate .value | json }} </pre>
+ 
+  
