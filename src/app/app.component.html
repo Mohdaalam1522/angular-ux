@@ -1,65 +1,106 @@
-
 <div class="container">
     <label for="customRange1" class="form-label">Example range</label>
-<input type="range" class="form-range" id="customRange1">
-<div class="row">
-    <div class="col-sm-6 col-md-8">This is Div1
-        <div class="row">
-            <div class="col-md-4">Nested 1</div>
-            <div class="col-md-4">Nested 2</div>
-            <div class="col-md-4">Nested 3</div>
+    <input type="range" class="form-range" id="customRange1">
+    <div class="row">
+        <div class="col-sm-6 col-md-8">This is Div1
+            <div class="row">
+                <div class="col-md-4">Nested 1</div>
+                <div class="col-md-4">Nested 2</div>
+                <div class="col-md-4">Nested 3</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">This is Div2</div>
+        <div class="col-sm-6 col-md-2">This is Div3</div>
+    </div>
+    <div>Toggle flag value from Child is: {{myToggleFlagFromChild}}</div>
+    <div> flafdata: {{myToggleflagdata}}</div>
+    <div> flafdata: {{myToggleflag}}</div>
+    <div> flafdata: {{myFlagData}}</div>
+    <div> flafdata: {{myName}}</div>
+    <div> flafdata: {{Data}}</div>
+
+    <button [disabled]="false">I am disabled</button>
+    <div>Data from Child component: {{dataFromParent | json}}</div>
+    <div>Data from Grand Child: {{myGrandChildData}}</div>
+    <app-my-child [parent]="myName" [child]="childName" [mychild]="myParent" (myCustomersData)="myChildData($event)"
+        (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)"
+        (myCustomersName)="class($event)" (myChildParent)="parentData($event)" (myChildOut)="datachild($event)"
+        (dataFromGrandChild)="grandChildData($event)"></app-my-child>
+    <button [disabled]="myGrandChildData" class="btn btn-outline-primary mx-2"> disableBtn</button>
+    {{ 2 | pipe:10 }}
+    <app-my-child (myCustomersData)="myChildData($event)"></app-my-child>
+
+    <div class="card my-4">
+        <div class="card-body">
+            <form #myTemplate="ngForm" (ngSubmit)="onSubmit(myTemplate)">
+                <div class="row py-2">
+                    <div class="col-md-2">
+                        <label for="fName">First Name:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" id="fName" name="fName" [(ngModel)]="formValue.fName"
+                            required maxlength="5" disabled="">
+                    </div>
+
+
+                </div>
+                <div class="row py-2">
+                    <div class="col-md-2">
+                        <label for="lName">Last Name:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control"
+                            [ngClass]="{'input-error-blue': (myTemplate.submitted) && email.errors && email.errors['required']}"
+                            type="text" id="lName" name="lName" [(ngModel)]="formValue.lName" #lName="ngModel" required>
+                        <span class="text-danger"
+                            *ngIf="(myTemplate.submitted) && lName.errors && lName.errors['required']">
+                            Last Name is required.
+                        </span>
+                    </div>
+                </div>
+                <div ngModelGroup="address">
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <label for="city">City:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="city" [(ngModel)]="formValue.City" required>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <label for="state">State:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="state" [(ngModel)]="formValue.state">
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <label for="pincode">Pin Code:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="pincode" [(ngModel)]="formValue.pincode">
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-md-2">
+                            <label for="email">E-mail:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control"
+                                [ngClass]="{'input-error': (myTemplate.submitted) && email.errors && email.errors['required']}"
+                                type="email" name="email" [(ngModel)]="formValue.email" #email="ngModel" required>
+                            <span class="text-danger"
+                                *ngIf="(myTemplate.submitted) && email.errors && email.errors['required']">
+                                Email is required.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-primary float-start">Submit</button>
+                <button type="button" class="btn btn-primary float-end" (click)="updateValue()">Update Value</button>
+            </form>
         </div>
     </div>
-    <div class="col-sm-6 col-md-2">This is Div2</div>
-    <div class="col-sm-6 col-md-2">This is Div3</div>
-</div>
-<div>Toggle flag value from Child is: {{myToggleFlagFromChild}}</div> 
-<div> flafdata: {{myToggleflagdata}}</div>
-<div> flafdata: {{myToggleflag}}</div>
-<div> flafdata: {{myFlagData}}</div>
-<div> flafdata: {{myName}}</div>
-<div> flafdata: {{Data}}</div>
-
-<button [disabled]="false">I am disabled</button>
-<div>Data from Child component: {{dataFromParent | json}}</div>
-<div>Data from Grand Child: {{myGrandChildData}}</div>
-<app-my-child [parent]="myName"[child]="childName" [mychild]="myParent" (myCustomersData)="myChildData($event)"  (myToggleFlag)="toggleData($event)" (mybuttonflag)="data($event)" (myText)="text($event)" (myCustomersName)="class($event)" (myChildParent) ="parentData($event)" (myChildOut)="datachild($event)" (dataFromGrandChild)="grandChildData($event)"></app-my-child>
-<button [disabled]="myGrandChildData" class="btn btn-outline-primary mx-2"> disableBtn</button>
-{{ 2 | pipe:10 }}
-<app-my-child (myCustomersData)="myChildData($event)"></app-my-child>
-
-
-    <form #myTemplate="ngForm" (ngSubmit)="onSubmit(myTemplate)">
-        <div>
-            <label for="fName">First Name</label>
-            <input type="text" id="fName" name="fName" [(ngModel)]="formValue.fName" required maxlength="5" disabled="">
-        </div>
-        <div>
-            <label for="lName">Last Name</label>
-            <input type="text" id="lName" name="lName" [(ngModel)]="formValue.lName" required>
-        </div>
-        <div ngModelGroup="address">
- 
-            <p>
-              <label for="city">City</label>
-              <input type="text" name="city" ngModel>
-            </p>
-         
-            <p>
-              <label for="street">Street</label>
-              <input type="text" name="street" ngModel>
-            </p>
-            <p>
-              <label for="pincode">Pin Code</label>
-              <input type="text" name="pincode" ngModel>
-            </p>
-         
-        </div>
-        <button type="submit" [disabled]="!myTemplate.valid">Submit</button>
-        <button type="button" (click)="updateValue()">Update Value</button>
-
-    </form>
-
     <pre>Value : {{myTemplate .value | json }} </pre>
- 
-  

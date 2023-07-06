@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
+export class AppComponent implements OnInit {
   myParent: string = "data Transfer From Parent To child";
   title = 'mytestAalam';
   myName: string = 'Aalam from parent';
@@ -21,7 +21,7 @@ export class AppComponent  implements OnInit{
   dataFromChild: string | undefined;
   Data: string | undefined;
   myGrandChildData: string | undefined;
-  formValue:any = {}
+  formValue: any = {}
   @ViewChild('myTemplate') myTemplateForm: NgForm | undefined;
   myChildData(msg: Customer[]) {
     console.log(msg);
@@ -62,10 +62,15 @@ export class AppComponent  implements OnInit{
 
   ngOnInit() {
     console.log("AppComponent:ngOnInit");
-    
+
     this.formValue = {
       fName: 'Mr.',
-      lName: 'ABC'
+      
+      City: 'Amroha',
+      state: 'Uttar Pradesh',
+      pincode: '244221',
+      email: 'mohdaalam1522@gmail.com'
+
     }
   }
 
@@ -83,7 +88,12 @@ export class AppComponent  implements OnInit{
 
   ngAfterViewInit() {
     console.log("AppComponent:AfterViewInit");
-    this.myTemplateForm?.control.patchValue({fName: 'aa'})
+    this.myTemplateForm?.control.patchValue({ fName: 'aa' })
+    this.myTemplateForm?.control.patchValue({ lName: 'aa' })
+    this.myTemplateForm?.control.patchValue({ City: 'a' })
+    this.myTemplateForm?.control.patchValue({ state: 'b' })
+    this.myTemplateForm?.control.patchValue({ pincode: 'c' })
+    this.myTemplateForm?.control.patchValue({ email: 'd' })
   }
 
   ngAfterViewChecked() {
@@ -99,15 +109,15 @@ export class AppComponent  implements OnInit{
     console.log(contactForm.value);
   }
 
-  updateValue(){
-    let obj = {
-      firstname: "Rahul",
-      lastname: "Dravid",
-      email: "rahul@gmail.com",
-    };
-    if(this.myTemplateForm)
-     this.myTemplateForm.control.patchValue(obj);
-  } 
-  
+  updateValue() {
+    this.formValue = {
+      fName: 'Mr. Updated',
+      lName: 'ABC Updated',
+      City: 'Amroha updated',
+      state: 'Uttar Pradesh updated',
+      pincode: '123456',
+      email: 'updated@gmail.com'
+    }
+  }
 }
 
