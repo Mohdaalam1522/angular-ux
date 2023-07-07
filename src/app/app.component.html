@@ -29,7 +29,9 @@
     <button [disabled]="myGrandChildData" class="btn btn-outline-primary mx-2"> disableBtn</button>
     {{ 2 | pipe:10 }}
     <app-my-child (myCustomersData)="myChildData($event)"></app-my-child>
-
+    <div class="row pt-5">
+        <div class="col-md-4 offset-md-4 h2">Template Driven Form</div>
+    </div>
     <div class="card my-4">
         <div class="card-body">
             <form #myTemplate="ngForm" (ngSubmit)="onSubmit(myTemplate)">
@@ -103,4 +105,10 @@
             </form>
         </div>
     </div>
-    <pre>Value : {{myTemplate .value | json }} </pre>
+    <div class="row">
+        <div class="col-md-12">
+            Value : {{myTemplate .value | json }}
+        </div>
+    </div>
+
+    <app-grandchild></app-grandchild>
