@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-
+import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-my-child',
   templateUrl: './my-child.component.html',
