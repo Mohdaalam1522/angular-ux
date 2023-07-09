@@ -2,11 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Customer } from './my-child/my-child.component';
 import { NgForm } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MyDataService } from './services/my-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  //  providers: [MyDataService]
 })
 export class AppComponent implements OnInit {
   myParent: string = "data Transfer From Parent To child";
