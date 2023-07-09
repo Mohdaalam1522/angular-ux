@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-md-4">
                         <input class="form-control"
-                            [ngClass]="{'input-error-blue': (myTemplate.submitted) && email.errors && email.errors['required']}"
+                            [ngClass]="{'input-error-blue': (myTemplate.submitted) && lName.errors && lName.errors['required']}"
                             type="text" id="lName" name="lName" [(ngModel)]="formValue.lName" #lName="ngModel" required>
                         <span class="text-danger"
                             *ngIf="(myTemplate.submitted) && lName.errors && lName.errors['required']">

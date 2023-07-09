@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MyChildComponent } from './my-child/my-child.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Child2Component } from './child2/child2.component';
 import { GrandchildComponent } from './grandchild/grandchild.component';
 import { PipePipe } from './pipe.pipe';
 import { FlyingHeroesPipe } from './flying-heroes.pipe';
+import { MyDataService } from './services/my-data.service';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +20,9 @@ import { FlyingHeroesPipe } from './flying-heroes.pipe';
     FlyingHeroesPipe
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
-  providers: [],
+ // providers: [MyDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
